@@ -1,0 +1,110 @@
+<%- include("partials/header"); -%>
+<div style="background-color: #c8d8e4; margin:0; padding-bottom: 5rem; padding-top: 5rem;">
+<h1 style="margin: 0rem 0 0 10rem;">Welcome,<strong> <%= username %> </strong></h1>
+</div>
+<h2 style="letter-spacing: 0.4rem; font-family: 'Source Code Pro', monospace; margin-left: 10.5rem; margin-top: 4rem;">LOST :</h2>
+<div class="row grid" style="background-color: white;">
+<h1><% litems[0] %></h1> 
+<% litems.forEach(function (item) { %>
+    <div class="col-md-3 griditem" style="background-color: #c8d8e4;">
+        <h2><%=item.item%></h2>
+        <img style="border-radius: 2.5%; width: 100%; margin-bottom: 4%;" src="<%= item.img %>" alt="<%= item.img %> ">
+        <div>
+          <p><strong>Description:&nbsp;&nbsp;</strong> <%=item.desc%></p>   
+          <p style="display: inline-block;"><strong>Date added:&nbsp;&nbsp;</strong><%=item.addDate%></p>        <p style="display:inline-block;"><strong>Date lost:&nbsp;&nbsp;</strong><%=item.lostDate%></p>
+        </div>
+
+        <!-- <p>Added by: <%=username%></p> -->
+        <form action="/<%= username %>/lost/<%= item._id %>" method="post">
+        <button class="btn" style="margin-bottom: 0.5rem; border: #2b6777; background-color: #2b6777; color: white;">Details</button> 
+        </form>
+    </div>
+<% })  %>  
+</div>
+<btn class="btn btn-primary" style="border:orange; background-color: orange; color: white; margin: 2rem 0 0 10rem;" href="#" data-target="#addLost" data-toggle="modal">Add lost item</btn>
+<div id="addLost" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    
+    <div class="modal-content">
+      <div class="modal-body">
+        <button data-dismiss="modal" class="close">&times;</button>
+        <h4>Add lost item</h4>
+        <form method="post" action="/<%= username %>/addLost" enctype="multipart/form-data">
+          <input type="text" name="name" class="username form-control" placeholder="Item Name"/>
+          <input type="date" name="lostDate" class="password form-control" placeholder="Date Lost"/>
+          <input type="file" name="image" class="password form-control" placeholder="Image"/>
+          <textarea type="text" name="desc" class="password form-control" placeholder="Description"></textarea>
+		  <button type="submit" class="btn login btn-outline-dark">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>  
+</div>
+</div>
+
+<h2 style="letter-spacing: 0.4rem; font-family: 'Source Code Pro', monospace; margin-left: 10.5rem; margin-top: 10rem;">FOUND :</h2>
+<div class="row grid" style="background-color: white;">
+<% fitems.forEach(function (item) { %>
+
+    <div class="col-md-3 griditem" style="background-color: #c8d8e4;">
+        <h2><%=item.item%></h2>
+        <img style="width: 100%; border-radius: 2.5%;" src="<%=item.img%>" alt="Image">
+        <p><strong>Description:&nbsp;&nbsp;</strong><%=item.desc%></p>   
+        <p><strong>Date added:&nbsp;&nbsp;</strong><%=item.addDate%></p>
+       
+        <!-- <p><strong>Found At:&nbsp;&nbsp;</strong><%= item.foundat %> </p> -->
+        <p><strong>Returned to:&nbsp;&nbsp;</strong><%= item.returned %> </p>
+       
+        <!-- <p><%=username%></p> -->
+        <form action="/<%= username %>/found/<%= item._id %>" method="post" enctype="multipart/form-data">
+        <button class="btn" style="background-color: #2b6777; color:white">Details</button>
+        </form>
+    </div>
+<% }); %>  
+</div>
+<btn class="btn btn-primary" style="border:orange; background-color: orange; color: white;margin: 2rem 0 2rem 10rem;" href="#" data-target="#addFound" data-toggle="modal">Add found item</btn>
+<div id="addFound" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    
+    <div class="modal-content">
+      <div class="modal-body">
+        <button data-dismiss="modal" class="close">&times;</button>
+        <h4>Add found item</h4>
+        <form method="post" action="/<%=username%>/addFound" enctype="multipart/form-data">
+          <input type="text" name="name" class="username form-control" placeholder="Item Name"/>
+          <!-- <input type="text" name="foundDate" class="password form-control" placeholder="Date Found"/> -->
+          <input type="text" name="foundAt" class="password form-control" placeholder="Found At"/>
+          <input type="text" name="returnedTo" class="password form-control" placeholder="Returned to"/>
+          <input type="file" name="image" class="password form-control" placeholder="Image"/>
+          <textarea type="text" name="desc" class="password form-control" placeholder="Description"></textarea>
+		  <button type="submit" class="btn login btn-outline-dark">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>  
+</div>
+</div>
+
+<h2 style="letter-spacing: 0.4rem; font-family: 'Source Code Pro', monospace; margin-left: 10.5rem; margin-top: 10rem;">HISTORY :</h2>
+<div class="row grid" style="background-color: white; margin-bottom: 2rem;">
+<% history.forEach(function (item) { %>
+
+    <div class="col-md-3 griditem" style="background-color: #c8d8e4;">
+        <h2><%=item.item%></h2>
+        <img style="width: 100%;border-radius: 2.5%; " src="<%= item.img %>" alt="Image">
+        <p style="color: red;"><%= item.removereason %> </p>
+        <p><strong>Description:&nbsp;&nbsp;</strong> <%=item.desc%></p>  
+        <p><strong>Added by:&nbsp;&nbsp; </strong><%= item.addname %> </p>
+        <p><strong>Added on: &nbsp;&nbsp;</strong><%=item.addDate%></p>
+        <p><strong>Removed on:&nbsp;&nbsp;</strong> <%= item.removeDate %> </p> 
+        
+         <p><strong>Removed by: &nbsp;&nbsp;</strong><%= item.removename %> </p>
+ 
+        <!-- <form action="/<%= username %>/found/<%= item._id %>" method="post">
+        <button>Details</button>
+        </form> -->
+    </div>
+<% }); %>  
+</div>
+
+<%- include("partials/footer"); -%>

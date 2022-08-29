@@ -1,0 +1,23 @@
+<%- include("partials/header"); -%>
+<div style="background-color: #c8d8e4; padding-top: 2rem;">
+<img style="border-radius: 1.5%; display:block; margin-left:20%; margin-right: auto;" src="/<%=item.img%>" alt="<%= item.img %>">
+<div style=" text-align: left; padding-bottom: 4rem; padding-top: 4rem; margin-left:20%; margin-right: auto; display: block;">
+    <!-- <div style="text-align: left;"> -->
+<h1><%=item.item%></h1>
+<p></p>
+<p><strong>Description:&nbsp&nbsp</strong> <%=item.desc%></p>   
+<p><strong>Date added:&nbsp&nbsp</strong><%=item.addDate%></p>
+<p><strong>Date lost:&nbsp&nbsp </strong><%=item.lostDate%></p>
+
+<p><strong>Added by:&nbsp&nbsp</strong><%=user.name%></p>
+<p><strong>Roll no.:&nbsp&nbsp</strong><%=user.rollno%> </p>
+<p><strong>Contact:&nbsp&nbsp</strong> <%=user.contact%> </p>
+<% if(user.name===username){%>
+    <form action="/<%=username%>/<%= item._id %>/remove" method="post">
+    <button class="btn" style="background-color: red; color: white;" type="submit">Remove</button>
+    </form>
+    <% } %>  
+    </div>
+</div>
+
+<%- include("partials/footer"); -%>

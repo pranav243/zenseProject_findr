@@ -1,0 +1,22 @@
+<%- include("partials/header"); -%>
+<div style="background-color: #c8d8e4; padding-top: 2rem;">
+<img style="border-radius: 1.5%; display:block; margin-left:20%; margin-right: auto;" src="/<%= item.img %>" alt="<%= item.img %>">
+<div style=" text-align: left; padding-bottom: 4rem; padding-top: 4rem; margin-left:20%; margin-right: auto; display: block;">
+<h1><%=item.item%></h1>
+<p></p>
+<p><strong>Description:&nbsp&nbsp</strong><%=item.desc%></p>  
+<p><strong>Date added:&nbsp&nbsp</strong><%=item.addDate%></p>
+<!-- <p><%=item.lostDate%></p> -->
+ 
+
+<p><strong>Found at:&nbsp;&nbsp;</strong><%=item.foundat %> </p>
+<p><strong>Returned to:&nbsp;&nbsp;</strong><%=item.returned%></p>
+<p><strong>Found by:&nbsp;&nbsp;</strong><%=user.name%></p>
+<p><strong>Roll no.:&nbsp;&nbsp;</strong><%=user.rollno%> </p>
+<p><strong>Contact:&nbsp;&nbsp;</strong><%=user.contact%> </p>
+<form action="/<%=username%>/<%= item._id %>/claim" method="post">
+<button class="btn " style="background-color: green; color:white; width: 10rem;" type="submit">Claim</button>
+</form>
+</div>
+</div>
+<%- include("partials/footer"); -%>

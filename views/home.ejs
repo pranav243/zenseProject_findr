@@ -1,0 +1,90 @@
+<%- include("partials/header"); -%>
+
+<div class="loginhome">
+	<div style="height: 0; border: 0; padding: 0;">
+	<iframe style="width: 8rem;" src="https://giphy.com/embed/dsdYdqPzuB58sH07rq" width="480" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+	</div>
+	<iframe style="width: 8rem; padding-top: 20rem;" src="https://giphy.com/embed/dsdYdqPzuB58sH07rq" width="480" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+	<img style="border-style:none ;" src="https://i0.wp.com/lost-found.org/wp-content/uploads/lost-item.png?resize=685%2C304&ssl=1" alt="">
+	<iframe style="width: 8rem; padding-top: 20rem;" src="https://giphy.com/embed/dsdYdqPzuB58sH07rq" width="480" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+	<h3  style="margin-bottom: 3rem; color: #2b6777">Never lose anything in campus ever again!</h3>
+	<!-- <button type="button" class="btn btn-outline-light btn-lg">Login</button>
+	<button type="button" class="btn btn-outline-light btn-lg">Sign Up</button> -->
+	<!--Trigger-->
+<btn class="login-trigger btn btn-lg" style="background-color: orange; color: white" href="#" data-target="#login" data-toggle="modal">Login</btn>
+<btn class="login-trigger btn btn-lg" style="background-color: orange; color: white" href="#" data-target="#signup" data-toggle="modal">Sign Up</btn>
+
+<div id="login" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    
+    <div class="modal-content">
+      <div class="modal-body">
+        <button data-dismiss="modal" class="close">&times;</button>
+        <h4>Login</h4>
+        <form method="post" action="/login">
+          <input type="text" name="email" class="username form-control" placeholder="Email-ID"/>
+          <input type="password" name="password" class="password form-control" placeholder="Password"/>
+          <!-- <input class="btn login" type="submit" value="Login" /> -->
+		  <button type="submit" style="border:orange; background-color: orange; color: white" class="btn login">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>  
+</div>
+</div>
+
+<!-- <btn class="login-trigger btn btn-outline-light btn-lg" href="#" data-target="#login" data-toggle="modal">Sign Up</btn> -->
+
+<div id="signup" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    
+    <div class="modal-content">
+      <div class="modal-body">
+        <button data-dismiss="modal" class="close">&times;</button>
+        <h4 style="text-align: center;">Sign Up</h4>
+        <form method="post" action="/signup">
+          <input type="text" name="name" class="username form-control" placeholder="Name"/>
+		  <input type="text" name="rollno" class="username form-control" placeholder="Roll No.">
+		  <input type="text" name="contact" class="username form-control" placeholder="Contact No.">
+		  <input type="text" name="emailID" class="username form-control" placeholder="Email-ID">
+          <input type="password" name="password" class="password form-control" placeholder="Set Password"/>
+          <!-- <input class="btn login" type="submit" value="Login" /> -->
+		  <button type="submit" style="border:orange; background-color: orange; color: white;" class="btn signup">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>  
+</div>
+</div>
+
+<div id="carouselExampleControls" style="background-color: #2b6777; padding: 4rem;" class="carousel slide" data-ride="carousel">
+	<ol class="carousel-indicators">
+		<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+		<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+		<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+	  </ol>
+	<div class="carousel-inner" >
+	  <div class="carousel-item active">
+		<!-- <img class="d-block w-100" src="..." alt="First slide"> -->
+		<h2>Login/Sign Up with your college email-id to see the list of lost and found items and their details</h2>
+	  </div>
+	  <div class="carousel-item">
+		<!-- <img class="d-block w-100" src="..." alt="Second slide"> -->
+		<h2>Look through the found items list for your lost item, else add a new item in the lost items list</h2>
+	  </div>
+	  <div class="carousel-item">
+		<!-- <img class="d-block w-100" src="..." alt="Third slide"> -->
+		<h2>Add a new item to the found list if you find something someone might have lost and help others</h2>
+	  </div>
+	</div>
+	<a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+	  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+	  <!-- <span class="sr-only">Previous</span> -->
+	</a>
+	<a class="carousel-control-next"  href="#carouselExampleControls" role="button" data-slide="next">
+	  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+	  <!-- <span class="sr-only">Next</span> -->
+	</a>
+  </div>
+
+<%- include("partials/footer"); -%>
